@@ -87,15 +87,6 @@ export default class Calculator extends Component {
         // if an operator is selected when num1, num2 and operator are populated, equals should be run first 
         if (this.state.numberOne !== "" && this.state.operation !== "" && this.state.readout !== "") {
 
-
-            // let promise = new Promise((resolve,reject) => {
-            //     setTimeout(() => resolve(this.setOperatorAfterEquals),1000)
-            // });
-
-            // let result = await promise;
-
-            this.equals(this.setOperatorAfterEquals);
-
             this.equals().then(this.setOperatorAfterEquals);
 
 
@@ -131,7 +122,7 @@ export default class Calculator extends Component {
          }
 
          resolve();
-        }, 2000);
+        }, 100);
         });
     }
 
