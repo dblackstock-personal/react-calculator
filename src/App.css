@@ -1,22 +1,36 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top:4%;
 }
 
-.App-link {
-  color: #09d3ac;
+.calculator{
+  display:flex;
+  flex-wrap:wrap;
+  width:20%;
+}
+
+.display{
+  width:100%;
+  background-color:black;
+  color:white;
+  vertical-align:middle;
+  height:100px;
+  line-height: 100px;
+}
+
+.button{
+  width:25%;
+  box-sizing: border-box;
+  border: rgba(192, 77, 77, 0.863) solid 1px;
+}
+
+.clear{
+  width:75%;
+}
+
+.operator{
+  background: rgba(192, 113, 77, 0.863);
+  color:white;
 }
