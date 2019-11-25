@@ -25,37 +25,44 @@ export default class Calculator extends Component {
         if (this.state.operation !== "" && this.state.numberTwo === "") {   //this is for the case when we start inputting a second number
             // console.log("number outcome 1");
             // console.log("number 1 is "+this.state.numberOne);
-            await new Promise (accept => this.setState({
-                readout: input,
-            }, accept));
-            this.setState({
-                numberTwo: this.state.readout
-            })
+            await new Promise(accept => this.setState(
+                {
+                    readout: input,
+                }, accept))
+
+            this.setState(
+                {
+                    numberTwo: this.state.readout
+                })
 
         } else if (this.state.operation !== "" && this.state.numberOne === "") { //this is when we input the first number and we've just done a sum (so operator and second number have values)
             // console.log("number outcome 2");
             this.clear();
-            await new Promise (accept => this.setState({
-                readout: input,
-            }, accept));
-            this.setState({
-                numberOne: this.state.readout
-            })
+            await new Promise(accept => this.setState(
+                {
+                    readout: input,
+                }, accept));
+            this.setState(
+                {
+                    numberOne: this.state.readout
+                })
 
         } else if (this.state.operation !== "") { //this is when we continue to input the second number
             // console.log("number outcome 3");
-            await new Promise(accept => this.setState({
-                readout: this.state.readout.toString() + input
-            }, accept));
+            await new Promise(accept => this.setState(
+                {
+                    readout: this.state.readout.toString() + input,
+                }, accept));
             this.setState({
                 numberTwo: this.state.readout
             })
 
         } else if (this.state.operation === "") {  //this is for when we are inputting the first number
-            console.log("number outcome 4");
-            await new Promise(accept => this.setState({
-                readout: this.state.readout.toString() + input
-            }, accept));
+            // console.log("number outcome 4");
+            await new Promise(accept => this.setState(
+                {
+                    readout: this.state.readout.toString() + input
+                }, accept));
             this.setState({
                 numberOne: this.state.readout
             })
@@ -119,8 +126,7 @@ export default class Calculator extends Component {
         return result;
     }
 
-     equals() {
-         console.log(this.state.numberTwo);
+    equals = () => {
         // for the case where equals is run for the first time
         if (this.state.numberOne !== "" && this.state.operation !== "" && this.state.readout !== "") { //this is suspect, why am I not looking at numberTwo?
             // console.log("equals outcome 1");
@@ -129,7 +135,7 @@ export default class Calculator extends Component {
             // console.log(`Going into the equals, readout is ${this.state.readout} and operator is ${this.state.operation}`);
             let result = this.operation(this.state.numberOne, this.state.numberTwo);
             // console.log(`The result is ${result}`);
-             this.setState({
+            this.setState({
                 readout: result,
                 numberOne: ""
             })
@@ -139,7 +145,7 @@ export default class Calculator extends Component {
             // console.log(`Going into the equals, number1 is ${this.state.numberOne}`);
             // console.log(`Going into the equals, number2 is ${this.state.numberTwo}`);
             let result = this.operation(this.state.readout, this.state.numberTwo);
-             this.setState({
+            this.setState({
                 readout: result
             })
         }
